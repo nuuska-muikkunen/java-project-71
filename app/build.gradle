@@ -20,6 +20,12 @@ compileJava {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/one.util/streamex
+    runtimeOnly group: 'one.util', name: 'streamex', version: '0.8.1'
+    // https://central.sonatype.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.15.2
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+    // https://mvnrepository.com/artifact/info.picocli/picocli
+    implementation group: 'info.picocli', name: 'picocli', version: '4.7.4'
     testImplementation platform('org.junit:junit.bom:5.9.2')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
