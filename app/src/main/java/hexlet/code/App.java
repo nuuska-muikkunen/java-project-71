@@ -12,15 +12,15 @@ import java.util.concurrent.Callable;
         description = "Compares two configuration files and shows a difference."
 )
 class App implements Callable {
-        @Parameters(description = "path to first file", paramLabel = "filepath1")
+    @Parameters(description = "path to first file", paramLabel = "filepath1")
         private String filepath1;
-        @Parameters(description = "path to second file", paramLabel = "filepath2")
+    @Parameters(description = "path to second file", paramLabel = "filepath2")
         private String filepath2;
-        @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
+    @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
         boolean versionInfoRequested;
-        @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
+    @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
         boolean usageHelpRequested;
-        @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", paramLabel = "format")
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", paramLabel = "format")
         private String format;
     @Override
     public String call() throws Exception {

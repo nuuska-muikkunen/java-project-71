@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.TreeMap;
 
 public class GenDiff {
     public static LinkedHashMap<String, Object> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
@@ -12,7 +16,7 @@ public class GenDiff {
         LinkedHashMap<String, Object>  intermediate = new LinkedHashMap<>();
         for (String s1 : united) {
             if (data1.containsKey(s1)) {
-                 intermediate.put(s1, data1.get(s1));
+                intermediate.put(s1, data1.get(s1));
             } else {
                 intermediate.put(s1, data2.get(s1));
             }

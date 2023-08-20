@@ -1,12 +1,24 @@
 DEFAULT_GOAL := build-run
 
-run-test:
-	./build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/file1.json src/main/resources/file2.json
+run-old:
+	@./build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/file1.json src/main/resources/file2.json
+
 run-help:
-	./build/install/app/bin/app -h
+	@./build/install/app/bin/app -h
+
 run-vers:
-	./build/install/app/bin/app -V
+	@./build/install/app/bin/app -V
+
 run-dist:
-	./build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
+	@./build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
+
+run-build:
+	./gradlew clean build
+
+run-test:
+	./gradlew test
+
+report:
+	@./gradlew jacocoTestReport
 
 .PHONY: build
