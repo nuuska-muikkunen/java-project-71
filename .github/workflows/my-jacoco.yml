@@ -18,12 +18,5 @@ jobs:
           gradle-version: '8.2.1'
       - run: ./app/gradlew init
       - run: ./app/gradlew build
-
-  test:
-    runs-on: ubuntu-latest
-
-   steps:
-      -name: define directory for code coverage report
       - run: JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage ./app/build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
-      - name: send report to Code Climate
       - run: ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
