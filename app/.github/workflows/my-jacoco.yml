@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      name: Set up JDK 20
-      - uses: actions/setup-java@v3
+      uses: actions/checkout@v3
+      - name: Set up JDK 20
+      uses: actions/setup-java@v3
         with:
           java-version: '20'
           distribution: 'temurin'
-      name: build with Gradle
-      - uses: gradle/gradle-build-action@v2
+      - name: build with Gradle
+      uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2.1
-      - run: ./gradlew build
-      - run: JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage ./app/build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
-      - run: ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
+      run: ./gradlew build
+      run: JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage ./app/build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
+      run: ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
