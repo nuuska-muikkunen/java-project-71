@@ -21,12 +21,9 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version '8.2.1'
-# Execute Gradle build
       - run: ./gradlew build
 
-# set up xml path for code climate
           name: Set jacoco.xml path for code climate
           -run: JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage ./app/build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
-# upload coverage on code climat
           name: Upload code climate report
           - run: ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
