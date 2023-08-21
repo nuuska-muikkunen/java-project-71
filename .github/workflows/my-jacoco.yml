@@ -16,7 +16,7 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: '8.2.1'
-      - run: ./app/gradlew init
+#      - run: ./app/gradlew init
       - run: ./app/gradlew build
       - run: JACOCO_SOURCE_PATH=app/src/main/java ./app/cc-test-reporter/cc-test-reporter format-coverage ./app/build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
       - run: ./app/cc-test-reporter/cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
