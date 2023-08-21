@@ -17,8 +17,7 @@ jobs:
         with:
           gradle-version: '8.2.1'
       - run: ./app/gradlew init
-      - run: ./app/gradlew build
-
+      - run: ./app/gradlew build test checkstyleMain checkstyleTest jacocoTestReport
 # jobs:
 #  test:
 #    runs-on: ubuntu-latest
