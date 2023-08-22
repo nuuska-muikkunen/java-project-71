@@ -1,22 +1,14 @@
 package hexlet.code;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        String linesOf1stFile = Files.readString(Paths.get(filePath1).toAbsolutePath().normalize());
-        String linesOf2stFile = Files.readString(Paths.get(filePath2).toAbsolutePath().normalize());
-        Map<String, Object> map1 = mapper.readValue(linesOf1stFile, new TypeReference<>() { });
-        Map<String, Object> map2 = mapper.readValue(linesOf2stFile, new TypeReference<>() { });
-        LinkedHashMap<String, Object> map3 = GenDiff.genDiff(map1, map2);
-        String t = map3.toString();
-        return t.replace("=", ": ").replace(",", "\n")
+        Map<String, Object> file1InMapFormat = Parser.parse(filePath1);
+        Map<String, Object> file2InMapFormat = Parser.parse(filePath2);
+        Map<String, Object> resultoOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
+        String forOutput = resultoOfComparedFiles.toString();
+        return forOutput.replace("=", ": ").replace(",", "\n")
                 .replace("{", "{\n ").replace("}", "\n}");
     }
 }

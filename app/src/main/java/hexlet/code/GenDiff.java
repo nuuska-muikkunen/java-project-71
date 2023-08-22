@@ -10,10 +10,10 @@ public class GenDiff {
     public static LinkedHashMap<String, Object> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
         LinkedHashMap<String, Object> result = new LinkedHashMap<>();
         Set<String> united = new HashSet<>(data1.keySet());
-        united.addAll(data2.keySet());
         Set<String> intersection = new HashSet<>(data1.keySet());
+        united.addAll(data2.keySet());
         intersection.retainAll(data2.keySet());
-        LinkedHashMap<String, Object>  intermediate = new LinkedHashMap<>();
+        Map<String, Object>  intermediate = new LinkedHashMap<>();
         for (String s1 : united) {
             if (data1.containsKey(s1)) {
                 intermediate.put(s1, data1.get(s1));

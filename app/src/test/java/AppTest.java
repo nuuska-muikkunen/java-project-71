@@ -20,4 +20,17 @@ public class AppTest {
                 "/home/newcomer/java-project-71/app/src/test/resources/f2.json");
         assertThat(result).isEqualTo(expected);
     }
+    @Test
+    public void equalTest() throws Exception {
+        var expected = """
+                {
+                   host: hexlet.io
+                 - timeout: 50
+                 + timeout: 20
+                   verbose: true
+                }""";
+        String result = Differ.generate("/home/newcomer/java-project-71/app/src/test/resources/file2.json",
+                "/home/newcomer/java-project-71/app/src/test/resources/file1.json");
+        assertThat(result).isEqualTo(expected);
+    }
 }
