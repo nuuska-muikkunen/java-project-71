@@ -17,7 +17,7 @@ public class AppTest {
                  + verbose: true
                 }""";
         String result = Differ.generate("/home/newcomer/java-project-71/app/src/test/resources/f1.json",
-                "/home/newcomer/java-project-71/app/src/test/resources/f2.json");
+                "/home/newcomer/java-project-71/app/src/test/resources/f2.json", "stylish");
         assertThat(result).isEqualTo(expected);
     }
     @Test
@@ -30,7 +30,20 @@ public class AppTest {
                    verbose: true
                 }""";
         String result = Differ.generate("/home/newcomer/java-project-71/app/src/test/resources/file2.json",
-                "/home/newcomer/java-project-71/app/src/test/resources/file1.json");
+                "/home/newcomer/java-project-71/app/src/test/resources/file1.json", "stylish");
+        assertThat(result).isEqualTo(expected);
+    }
+    @Test
+    public void equalYamlTest() throws Exception {
+        var expected = """
+                {
+                   host: hexlet.io
+                 - timeout: 50
+                 + timeout: 20
+                   verbose: true
+                }""";
+        String result = Differ.generate("/home/newcomer/java-project-71/app/src/test/resources/file2.yaml",
+                "/home/newcomer/java-project-71/app/src/test/resources/file1.yaml", "yaml");
         assertThat(result).isEqualTo(expected);
     }
 }

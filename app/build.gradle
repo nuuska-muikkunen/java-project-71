@@ -27,6 +27,8 @@ jacoco {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '2.1'
     // https://mvnrepository.com/artifact/org.jacoco/org.jacoco.core
     implementation group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.10'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'

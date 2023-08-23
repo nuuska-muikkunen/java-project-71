@@ -1,13 +1,26 @@
 package hexlet.code;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Differ {
-    public static String generate(String filePath1, String filePath2) throws Exception {
-        Map<String, Object> file1InMapFormat = Parser.parse(filePath1);
-        Map<String, Object> file2InMapFormat = Parser.parse(filePath2);
-        Map<String, Object> resultoOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
-        String forOutput = resultoOfComparedFiles.toString();
+    public static String generate(String filePath1, String filePath2, String format) throws Exception {
+        Map<String, Object> file1InMapFormat = new HashMap<>();
+        Map<String, Object> file2InMapFormat = new HashMap<>();
+        switch (format) {
+            case "stylish" -> {
+                file1InMapFormat = Parser.parse(filePath1);
+                file2InMapFormat = Parser.parse(filePath2);
+            }
+            case "yaml" -> {
+                file1InMapFormat = Parser.parseYaml(filePath1);
+                file2InMapFormat = Parser.parseYaml(filePath2);
+            }
+            default -> {
+            }
+        }
+        Map<String, Object> resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
+        String forOutput = resultOfComparedFiles.toString();
         return forOutput.replace("=", ": ").replace(",", "\n")
                 .replace("{", "{\n ").replace("}", "\n}");
     }
