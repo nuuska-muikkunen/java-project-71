@@ -27,9 +27,7 @@ jacoco {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.1'
-    // https://mvnrepository.com/artifact/org.jacoco/org.jacoco.core
     implementation group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.10'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
     implementation group: 'one.util', name: 'streamex', version: '0.8.1'
@@ -44,7 +42,7 @@ jacocoTestReport {
     reports {
         xml.required = true
         csv.required = false
-//        html.outputLocation = layout.buildDirectory.dir('reports/jacoco')
+        html.outputLocation = layout.buildDirectory.dir('reports/jacoco/test/html')
     }
 }
 

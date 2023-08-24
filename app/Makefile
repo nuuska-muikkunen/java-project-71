@@ -3,6 +3,9 @@ DEFAULT_GOAL := build-run
 run-old:
 	./build/install/app/bin/app --format=stylish /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
 
+run-default:
+	./build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
+
 run-help:
 	./build/install/app/bin/app -h
 
