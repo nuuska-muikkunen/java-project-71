@@ -1,33 +1,34 @@
-DEFAULT_GOAL := build-run
+.DEFAULT_GOAL := build-run
 
-run-old:
-	./app/build/install/app/bin/app --format=stylish /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
+clean:
+	make -C app clean
 
-run-mix:
-	./app/build/install/app/bin/app --format=stylish /home/newcomer/java-project-71/app/src/test/resources/file_1.json src/test/resources/file_2.json
+build:
+	make -C app build
 
-run-default:
-	./app/build/install/app/bin/app /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
-
-run-help:
-	./app/build/install/app/bin/app -h
-
-run-vers:
-	./app/build/install/app/bin/app -V
+install:
+	make -C app install
 
 run-dist:
-	./app/build/install/app/bin/app --format stylish /home/newcomer/java-project-71/app/src/main/resources/f1.json src/main/resources/f2.json
+	make -C run-dist
 
-run-yaml:
-	./app/build/install/app/bin/app --format yaml /home/newcomer/java-project-71/app/src/main/resources/f1.yaml src/main/resources/f2.yaml
+run:
+	make -C app run
 
-run-build:
-	./app/gradlew clean build
-
-run-test:
-	./app/gradlew test
+test:
+	make -C app test
 
 report:
-	./app/gradlew jacocoTestReport
+	make -C app report
+
+lint:
+	make -C app lint
+
+update-deps:
+	make -C app update-deps
+
+
+build-run: build run
 
 .PHONY: build
+
