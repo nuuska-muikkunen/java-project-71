@@ -74,8 +74,8 @@ public class AppTest {
                   - setting3: true
                   + setting3: none
                 }""";
-        String result = Differ.generate("/home/newcomer/java-project-71/app/src/test/resources/file_1.json",
-                "/home/newcomer/java-project-71/app/src/test/resources/file_2.json", "stylish");
+        String result = Differ.generate("src/test/resources/file_1.json",
+                "src/test/resources/file_2.json", "stylish");
         assertThat(result).isEqualTo(expected);
     }
 }
