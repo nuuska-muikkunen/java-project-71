@@ -13,7 +13,6 @@ public class Parser {
         String linesOfFile = Files.readString(Paths.get(filePath).toAbsolutePath().normalize());
         return mapper.readValue(linesOfFile, new TypeReference<>() { });
     }
-
     public static Map<String, Object> parseYaml(String filePath) throws Exception {
         String linesOfFile = Files.readString(Paths.get(filePath).toAbsolutePath().normalize());
         Yaml yaml = new Yaml();

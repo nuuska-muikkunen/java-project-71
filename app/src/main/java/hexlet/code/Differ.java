@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,9 +20,7 @@ public class Differ {
             default -> {
             }
         }
-        Map<String, Object> resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
-        String forOutput = resultOfComparedFiles.toString();
-        return forOutput.replace("=", ": ").replace(",", "\n")
-                .replace("{", "{\n ").replace("}", "\n}");
+        LinkedHashMap<String, Object> resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
+        return Stylish.stylish(resultOfComparedFiles);
     }
 }

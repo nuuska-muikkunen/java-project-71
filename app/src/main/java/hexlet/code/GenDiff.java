@@ -1,43 +1,34 @@
 package hexlet.code;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.TreeMap;
 
 public class GenDiff {
-    public static LinkedHashMap<String, Object> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
-        LinkedHashMap<String, Object> result = new LinkedHashMap<>();
-        Set<String> united = new HashSet<>(data1.keySet());
-        Set<String> intersection = new HashSet<>(data1.keySet());
-        united.addAll(data2.keySet());
-        intersection.retainAll(data2.keySet());
-        Map<String, Object>  intermediate = new LinkedHashMap<>();
-        for (String s1 : united) {
-            if (data1.containsKey(s1)) {
-                intermediate.put(s1, data1.get(s1));
-            } else {
-                intermediate.put(s1, data2.get(s1));
-            }
-        }
-        TreeMap<String, Object> sorted = new TreeMap<>(intermediate);
-        intermediate.clear();
-        intermediate.putAll(sorted);
-        for (String s : intermediate.keySet()) {
-            if (intersection.contains(s)) {
-                if (data1.get(s).equals(data2.get(s))) {
-                    result.put("  " + s, data1.get(s));
+    public static LinkedHashMap<String, Object> genDiff(Map<String, Object> map1, Map<String, Object> map2)
+            throws Exception {
+        LinkedHashMap<String, Object>  result = new LinkedHashMap<>();
+        Set<String> united = new HashSet<>(map1.keySet());
+        Set<String> intersection = new HashSet<>(map1.keySet());
+        united.addAll(map2.keySet());
+        intersection.retainAll(map2.keySet());
+        for (String string: united) {
+            var map1Value = map1.get(string) == null ? "null" : map1.get(string);
+            var map2Value = map2.get(string) == null ? "null" : map2.get(string);
+            if (intersection.contains(string)) {
+                if (map1Value.equals(map2Value)) {
+                    result.put("    " + string, map1Value);
                 } else {
-                    result.put("- " + s, data1.get(s));
-                    result.put("+ " + s, data2.get(s));
+                    result.put("  - " + string, map1Value);
+                    result.put("  + " + string, map2Value);
                 }
                 continue;
             }
-            if (data1.containsKey(s)) {
-                result.put("- " + s, data1.get(s));
+            if (map1.containsKey(string)) {
+                result.put("  - " + string, map1Value);
             } else {
-                result.put("+ " + s, data2.get(s));
+                result.put("  + " + string, map2Value);
             }
         }
         return result;

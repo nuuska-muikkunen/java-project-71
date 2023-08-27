@@ -20,8 +20,9 @@ class App implements Callable {
         boolean versionInfoRequested;
     @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
         boolean usageHelpRequested;
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", paramLabel = "format")
-        private String format;
+    @Option(names = {"-f", "--format"}, description = "output format [default: ${DEFAULT-VALUE}]",
+            paramLabel = "format")
+        private String format = "stylish";
     @Override
     public String call() throws Exception {
         String s = Differ.generate(filepath1, filepath2, format);
