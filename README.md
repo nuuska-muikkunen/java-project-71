@@ -19,3 +19,5 @@ make run-build
 https://asciinema.org/a/602233
 ## asciinema for Step 7 Module 2 task
 https://asciinema.org/a/604347
+## asciinema for Step 8 Module 2 task
+https://asciinema.org/a/604896
