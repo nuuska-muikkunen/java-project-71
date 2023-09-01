@@ -27,6 +27,8 @@ jacoco {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.13.0'
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.1'
     implementation group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.10'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
