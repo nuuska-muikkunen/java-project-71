@@ -23,9 +23,9 @@ public class Plain {
                         var value2 = temp.get(s) instanceof String || isPrimitiveOrWrapper(temp.get(s).getClass())
                                 ? temp.get(s) : complexValue;
                         formattedString.append("Property '").append(j.substring(4)).append("' was updated. From ")
-                                .append(value1 instanceof String && !value1.equals(complexValue) && !value1.equals("null")
+                            .append(value1 instanceof String && !value1.equals(complexValue) && !value1.equals("null")
                                         ? "'" + value1 + "'" : value1).append(" to ")
-                                .append(value2 instanceof String && !value2.equals(complexValue) && !value2.equals("null")
+                            .append(value2 instanceof String && !value2.equals(complexValue) && !value2.equals("null")
                                         ? "'" + value2 + "'" : value2).append("\n");
                     } else {
                         formattedString.append("Property '").append(j.substring(4)).append("' was removed\n");

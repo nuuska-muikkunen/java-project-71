@@ -21,3 +21,5 @@ https://asciinema.org/a/602233
 https://asciinema.org/a/604347
 ## asciinema for Step 8 Module 2 task
 https://asciinema.org/a/604896
+## asciinema for Step 9 Module 2 task
+https://asciinema.org/a/605846
