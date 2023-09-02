@@ -8,8 +8,7 @@ public class Differ {
         Map<String, Object> file1InMapFormat;
         Map<String, Object> file2InMapFormat;
         LinkedHashMap<String, Object> resultOfComparedFiles;
-//        var linesOfFile1 = Files.readString(Paths.get(filePath1).toAbsolutePath().normalize());
-//        var linesOfFile2 = Files.readString(Paths.get(filePath2).toAbsolutePath().normalize());
+        //считаем, что оба файла одного типа и проверяем расширение только первого, но если надо, то проверим и второй
         String endOfFile = filePath1.substring(filePath1.lastIndexOf("."));
         switch (endOfFile) {
             case ".json" -> {
