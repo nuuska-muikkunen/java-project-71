@@ -8,9 +8,13 @@ public class Differ {
         Map<String, Object> file1InMapFormat;
         Map<String, Object> file2InMapFormat;
         LinkedHashMap<String, Object> resultOfComparedFiles;
-        //считаем, что оба файла одного типа и проверяем расширение только первого, но если надо, то проверим и второй
-        String endOfFile = filePath1.substring(filePath1.lastIndexOf("."));
-        switch (endOfFile) {
+        String endOfFile1 = filePath1.substring(filePath1.lastIndexOf("."));
+        String endOfFile2 = filePath2.substring(filePath2.lastIndexOf("."));
+        if (!endOfFile1.equals(endOfFile2)) {
+            System.out.println("The files are of difefrent types");
+            return "resultOfComparedFiles is empty";
+        }
+        switch (endOfFile1) {
             case ".json" -> {
                 file1InMapFormat = Parser.parse(filePath1);
                 file2InMapFormat = Parser.parse(filePath2);
@@ -21,7 +25,7 @@ public class Differ {
             }
             default -> {
                 System.out.println("There are files of unknown format");
-                return "resultOfComparedFiles";
+                return "resultOfComparedFiles is empty";
             }
         }
         resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);

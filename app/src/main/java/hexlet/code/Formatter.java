@@ -8,7 +8,8 @@ import java.util.LinkedHashMap;
 import static hexlet.code.SortBySubstring.sortMapBySubstring;
 
 public class Formatter {
-    public static String formatter(LinkedHashMap<String, Object> resultOfComparedFiles, String format) {
+    public static String formatter(LinkedHashMap<String, Object> resultOfComparedFiles, String format)
+                         throws Exception {
         LinkedHashMap<String, Object> sortedMap = sortMapBySubstring(resultOfComparedFiles);
         switch (format) {
             case "plain" -> {
