@@ -11,7 +11,7 @@ public class Differ {
         String endOfFile1 = filePath1.substring(filePath1.lastIndexOf("."));
         String endOfFile2 = filePath2.substring(filePath2.lastIndexOf("."));
         if (!endOfFile1.equals(endOfFile2)) {
-            System.out.println("The files are of difefrent types");
+            System.out.println("The files are of different types");
             return "resultOfComparedFiles is empty";
         }
         switch (endOfFile1) {
