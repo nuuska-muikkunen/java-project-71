@@ -11,8 +11,7 @@ public class Differ {
         String endOfFile1 = filePath1.substring(filePath1.lastIndexOf("."));
         String endOfFile2 = filePath2.substring(filePath2.lastIndexOf("."));
         if (!endOfFile1.equals(endOfFile2)) {
-            System.out.println("The files are of different types");
-            return "resultOfComparedFiles is empty";
+            return "The files are of different types";
         }
         switch (endOfFile1) {
             case ".json" -> {
@@ -24,8 +23,7 @@ public class Differ {
                 file2InMapFormat = Parser.parseYaml(filePath2);
             }
             default -> {
-                System.out.println("There are files of unknown format");
-                return "resultOfComparedFiles is empty";
+                return "There are files of unknown format";
             }
         }
         resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);

@@ -180,4 +180,18 @@ public class AppTest {
                 "src/test/resources/f2.json", "json");
         assertThat(result).isEqualTo(expected);
     }
+    @Test
+    public void differentTypesOfFilesTest() throws Exception {
+        var expected = "The files are of different types";
+        String result = Differ.generate("src/test/resources/file2.yaml",
+                "src/test/resources/f2.json", "stylish");
+        assertThat(result).isEqualTo(expected);
+    }
+    @Test
+    public void unknownTypeOfFilesTest() throws Exception {
+        var expected = "There are files of unknown format";
+        String result = Differ.generate("src/test/resources/foo1.doc",
+                "src/test/resources/foo2.doc", "stylish");
+        assertThat(result).isEqualTo(expected);
+    }
 }
