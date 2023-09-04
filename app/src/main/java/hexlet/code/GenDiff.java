@@ -28,7 +28,7 @@ public class GenDiff {
         for (String string2: keysFromBothMaps) {
             var map1Value = map1.get(string2) == null ? "null" : map1.get(string2);
             var map2Value = map2.get(string2) == null ? "null" : map2.get(string2);
-            if (Objects.equals(map1.get(string2), map2.get(string2))) {
+            if (Objects.equals(map1Value, map2Value)) {
                 result.put("    " + string2, map1Value);
             } else {
                 result.put("  - " + string2, map1Value);

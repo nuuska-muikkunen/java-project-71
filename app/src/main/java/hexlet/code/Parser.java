@@ -14,8 +14,8 @@ public class Parser {
         return mapper.readValue(linesOfFile, new TypeReference<>() { });
     }
     public static Map<String, Object> parseYaml(String filePath) throws Exception {
-        String linesOfFile = Files.readString(Paths.get(filePath).toAbsolutePath().normalize());
         Yaml yaml = new Yaml();
+        String linesOfFile = Files.readString(Paths.get(filePath).toAbsolutePath().normalize());
         return yaml.load(linesOfFile);
     }
 }

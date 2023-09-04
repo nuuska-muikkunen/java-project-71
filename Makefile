@@ -1,34 +1,36 @@
-.DEFAULT_GOAL := build-run
+DEFAULT_GOAL := build-run
 
-clean:
-	make -C app clean
+run-smallstylish:
+	./app/build/install/app/bin/app --format=stylish /home/newcomer/java-project-71/app/src/test/resources/f1.json app/src/test/resources/f2.json
 
-build:
-	make -C app build
+run-bigstylish:
+	./app/build/install/app/bin/app --format=stylish /home/newcomer/java-project-71/app/src/test/resources/file_1.json app/src/test/resources/file_2.json
 
-install:
-	make -C app install
+run-smalldefault:
+	./app/build/install/app/bin/app /home/newcomer/java-project-71/app/src/test/resources/f1.json app/src/test/resources/f2.json
+
+run-help:
+	./app/build/install/app/bin/app -h
+
+run-vers:
+	./app/build/install/app/bin/app -V
 
 run-dist:
-	make -C run-dist
+	./app/build/install/app/bin/app --format stylish /home/newcomer/java-project-71/app/src/main/resources/f1.json app/src/main/resources/f2.json
 
-run:
-	make -C app run
+run-yaml:
+	./app/build/install/app/bin/app --format yaml /home/newcomer/java-project-71/app/src/test/resources/file1.yml app/src/test/resources/file2.yml
 
-test:
-	make -C app test
+run-json:
+	./app/build/install/app/bin/app --format json /home/newcomer/java-project-71/app/src/test/resources/file_1.json app/src/test/resources/file_2.json
 
-report:
-	make -C app report
+run-build:
+	./app/gradlew -p app clean build
 
-lint:
-	make -C app lint
+run-test:
+	./app/gradlew -p app test
 
-update-deps:
-	make -C app update-deps
-
-
-build-run: build run
+run-report:
+	./app/gradlew -p app jacocoTestReport
 
 .PHONY: build
-

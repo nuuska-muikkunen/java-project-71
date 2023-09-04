@@ -1,0 +1,142 @@
+{
+  "ci_service": {
+    "branch": "main",
+    "build_identifier": "",
+    "build_url": "",
+    "commit_sha": "9f588e7ea45e7f3144cd4c0c365218e0b7f3ddbb",
+    "committed_at": 1693820544,
+    "name": ""
+  },
+  "environment": {
+    "gem_version": "",
+    "package_version": "",
+    "pwd": "/home/newcomer/java-project-71/app",
+    "prefix": "/home/newcomer/java-project-71/app",
+    "rails_root": "",
+    "reporter_version": "0.11.1",
+    "simplecov_root": ""
+  },
+  "git": {
+    "branch": "main",
+    "head": "9f588e7ea45e7f3144cd4c0c365218e0b7f3ddbb",
+    "committed_at": 1693820544
+  },
+  "covered_percent": 76.19047619047619,
+  "covered_strength": 0,
+  "line_counts": {
+    "missed": 30,
+    "covered": 96,
+    "total": 126
+  },
+  "source_files": [
+    {
+      "blob_id": "6500da116b1e8abbce13550c48a205b6f28ed1d5",
+      "coverage": "[null,null,null,null,null,null,0,null,1,1,2,5,8,4,4,null,null,0,2]",
+      "covered_percent": 80,
+      "covered_strength": 2.7,
+      "line_counts": {
+        "missed": 2,
+        "covered": 8,
+        "total": 10
+      },
+      "name": "src/main/java/hexlet/code/SortBySubstring.java"
+    },
+    {
+      "blob_id": "24b321ec305d9d9ced3e3641b5a3519ce75578ee",
+      "coverage": "[null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,0,null,null,null,null,0,0,0,null,null,0,0,0,0,0,0,0,0,0,0,0,null,0]",
+      "covered_percent": 0,
+      "covered_strength": 0,
+      "line_counts": {
+        "missed": 17,
+        "covered": 0,
+        "total": 17
+      },
+      "name": "src/main/java/hexlet/code/App.java"
+    },
+    {
+      "blob_id": "f51aa39c50d57fbe2655a6ff4e7889c99e20418d",
+      "coverage": "[null,null,null,null,null,null,null,0,null,null,8,null,3,null,null,3,null,null,3]",
+      "covered_percent": 80,
+      "covered_strength": 3.4,
+      "line_counts": {
+        "missed": 1,
+        "covered": 4,
+        "total": 5
+      },
+      "name": "src/main/java/hexlet/code/Formatter.java"
+    },
+    {
+      "blob_id": "6634ac415720c1b91dc7deb6e44f503851c7ccaf",
+      "coverage": "[null,null,null,null,null,0,null,null,null,null,6,6,4,0,0,null,8,null,3,3,1,null,3,3,1,null,0,0,null,null,4,4]",
+      "covered_percent": 70.58823529411765,
+      "covered_strength": 2.7058823529411766,
+      "line_counts": {
+        "missed": 5,
+        "covered": 12,
+        "total": 17
+      },
+      "name": "src/main/java/hexlet/code/Differ.java"
+    },
+    {
+      "blob_id": "b244b6175584c43727ba3f93a3f782c7a5bdbe42",
+      "coverage": "[null,null,null,null,null,null,null,null,null,0,null,null,4,6,5,6,5,5,5,5,5,10,12,1,10,12,1,10,10,10,4,7,null,6,6,null,1,3]",
+      "covered_percent": 96,
+      "covered_strength": 5.96,
+      "line_counts": {
+        "missed": 1,
+        "covered": 24,
+        "total": 25
+      },
+      "name": "src/main/java/hexlet/code/GenDiff.java"
+    },
+    {
+      "blob_id": "81888513476bab88dba25d4c5b771285a5bceac7",
+      "coverage": "[null,null,null,null,null,null,null,null,null,0,null,4,8,11,null,null,8,4,5]",
+      "covered_percent": 85.71428571428571,
+      "covered_strength": 5.714285714285714,
+      "line_counts": {
+        "missed": 1,
+        "covered": 6,
+        "total": 7
+      },
+      "name": "src/main/java/hexlet/code/Parser.java"
+    },
+    {
+      "blob_id": "e1cb629ea1e9b476380113c952d8d4146341ef7d",
+      "coverage": "[null,null,null,null,null,null,0,null,null,11,null,null,15,null,null,4,4,null,null,11,11,null,5,4,4,5,6,5,6,8,1,5,6,5,7,1,5,5,null,1,null,4,5,7,8,1,5,6,1,null,null,null,null,1,null,8]",
+      "covered_percent": 97.05882352941177,
+      "covered_strength": 5.323529411764706,
+      "line_counts": {
+        "missed": 1,
+        "covered": 33,
+        "total": 34
+      },
+      "name": "src/main/java/formatters/Plain.java"
+    },
+    {
+      "blob_id": "7d385f37da58e1ae0a31fdaf0f4cf6a176334ccf",
+      "coverage": "[null,null,null,null,0,null,5,11,12,1,4,3]",
+      "covered_percent": 85.71428571428571,
+      "covered_strength": 5.142857142857143,
+      "line_counts": {
+        "missed": 1,
+        "covered": 6,
+        "total": 7
+      },
+      "name": "src/main/java/formatters/Stylish.java"
+    },
+    {
+      "blob_id": "06294f8b031ead8f4ce1a9360e35f8c9864773fb",
+      "coverage": "[null,null,null,null,null,null,0,null,4,7,5]",
+      "covered_percent": 75,
+      "covered_strength": 4,
+      "line_counts": {
+        "missed": 1,
+        "covered": 3,
+        "total": 4
+      },
+      "name": "src/main/java/formatters/Json.java"
+    }
+  ],
+  "repo_token": ""
+}
