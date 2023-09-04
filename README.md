@@ -8,11 +8,50 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/03107652df1201852cd4/maintainability)](https://codeclimate.com/github/nuuska-muikkunen/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/03107652df1201852cd4/test_coverage)](https://codeclimate.com/github/nuuska-muikkunen/java-project-71/test_coverage)
 
-## Set
+## Setup
 ```sh
-make run-build
+make setup
 ```
-
+## Clean
+```sh
+make clean
+```	
+## Build
+```sh
+make build
+```
+## Install
+```sh
+make install
+```
+## Run-dist
+```sh
+make run-dist
+```
+## Run
+```sh
+make run
+```
+## Test
+```sh
+make test
+```
+## Report
+```sh
+make report
+```
+## Lint
+```sh
+make lint
+```
+## Check-deps
+```sh
+make check-deps
+```
+## Build-run
+```sh
+make build-run
+```
 ---
 
 ## asciinema for Step 5 Module 2 task
