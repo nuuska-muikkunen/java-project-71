@@ -26,7 +26,7 @@ public class Plain {
                         if (sortedMap.get(currentKey) == null) {
                             value1 = null;
                         } else {
-                            if(isComplexObject(sortedMap.get(currentKey))) {
+                            if (isComplexObject(sortedMap.get(currentKey))) {
                                 value1 = COMPLEX_VALUE;
                             }
                         }
@@ -34,7 +34,7 @@ public class Plain {
                         if (sortedMap.get(keyWithPlusPrefix) == null) {
                             value2 = null;
                         } else {
-                            if(isComplexObject(sortedMap.get(keyWithPlusPrefix))) {
+                            if (isComplexObject(sortedMap.get(keyWithPlusPrefix))) {
                                 value2 = COMPLEX_VALUE;
                             }
                         }
