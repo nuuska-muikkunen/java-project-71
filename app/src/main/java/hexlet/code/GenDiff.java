@@ -5,7 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import java.util.Objects;
 import java.util.HashSet;
-import static hexlet.code.SortBySubstring.sortMapBySubstring;
 
 public class GenDiff {
     public static LinkedHashMap<String, Object> genDiff(Map<String, Object> map1, Map<String, Object> map2)
@@ -20,14 +19,15 @@ public class GenDiff {
             result.put("  + " + string1, map2.get(string1) == null ? "null" : map2.get(string1));
         }
         for (String string2: keysInBothMaps) {
-            var map1Value = map1.get(string2) == null ? "null" : map1.get(string2);
-            var map2Value = map2.get(string2) == null ? "null" : map2.get(string2);
-            if (Objects.equals(map1Value, map2Value)) {
+            var value1 = map1.get(string2) == null ? "null" : map1.get(string2);
+            var value2 = map2.get(string2) == null ? "null" : map2.get(string2);
+            if (Objects.equals(value1, value2)) {
                 result.remove("  - " + string2);
                 result.remove("  + " + string2);
-                result.put("    " + string2, map1Value);
+                result.put("    " + string2, value1);
             }
         }
-        return sortMapBySubstring(result);
+
+        return result;
     }
 }
