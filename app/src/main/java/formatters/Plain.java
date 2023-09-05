@@ -23,15 +23,15 @@ public class Plain {
                     if (sortedMap.containsKey(keyWithPlusPrefix)) {
                         changedElementsList.add(keyWithPlusPrefix);
                         var value1 = sortedMap.get(currentKey);
-                        if(sortedMap.get(currentKey) == null) {
+                        if (sortedMap.get(currentKey) == null) {
                             value1 = null;
                         } else {
-                             if(isComplexObject(sortedMap.get(currentKey))) {
-                                 value1 = COMPLEX_VALUE;
-                             }
+                            if(isComplexObject(sortedMap.get(currentKey))) {
+                                value1 = COMPLEX_VALUE;
+                            }
                         }
                         var value2 = sortedMap.get(keyWithPlusPrefix);
-                        if(sortedMap.get(keyWithPlusPrefix) == null) {
+                        if (sortedMap.get(keyWithPlusPrefix) == null) {
                             value2 = null;
                         } else {
                             if(isComplexObject(sortedMap.get(keyWithPlusPrefix))) {
@@ -54,10 +54,10 @@ public class Plain {
                 case "  + " -> {
                     if (!changedElementsList.contains(currentKey)) {
                         var value = sortedMap.get(currentKey);
-                        if(sortedMap.get(currentKey) == null) {
+                        if (sortedMap.get(currentKey) == null) {
                             value = null;
                         } else {
-                            if(isComplexObject(sortedMap.get(currentKey))) {
+                            if (isComplexObject(sortedMap.get(currentKey))) {
                                 value = COMPLEX_VALUE;
                             }
                         }

@@ -10,8 +10,8 @@ public class Formatter {
     public static String formatter(LinkedHashMap<String, Object> resultOfComparedFiles, String format)
                          throws Exception {
         var mapWithNullValues = sortMapBySubstring(resultOfComparedFiles);
-        for(String s: mapWithNullValues.keySet()) {
-            if(mapWithNullValues.get(s).equals("null")) {
+        for (String s: mapWithNullValues.keySet()) {
+            if (mapWithNullValues.get(s).equals("null")) {
                 mapWithNullValues.replace(s, null);
             }
         }
