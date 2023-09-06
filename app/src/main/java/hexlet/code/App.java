@@ -25,9 +25,7 @@ class App implements Callable {
         private String format = "stylish";
     @Override
     public String call() throws Exception {
-        String s = Differ.generate(filepath1, filepath2, format);
-        System.out.println(s);
-        return s;
+        return Differ.generate(filepath1, filepath2, format);
     }
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
