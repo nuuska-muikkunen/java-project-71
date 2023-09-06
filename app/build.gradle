@@ -27,7 +27,6 @@ jacoco {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.13.0'
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.1'
     implementation group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.10'
@@ -35,9 +34,6 @@ dependencies {
     implementation group: 'one.util', name: 'streamex', version: '0.8.1'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
     implementation group: 'info.picocli', name: 'picocli', version: '4.7.4'
-    // https://mvnrepository.com/artifact/org.junit/junit-bom
-    //testImplementation group: 'org.junit', name: 'junit-bom', version: '5.10.0', ext: 'pom'
-//    testImplementation platform('org.junit:junit.bom:5.9.2')
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
