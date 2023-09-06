@@ -6,7 +6,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'hexlet.    code'
+group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -38,6 +38,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.junit/junit-bom
     //testImplementation group: 'org.junit', name: 'junit-bom', version: '5.10.0', ext: 'pom'
 //    testImplementation platform('org.junit:junit.bom:5.9.2')
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
 
