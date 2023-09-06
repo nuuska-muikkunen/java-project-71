@@ -35,7 +35,9 @@ dependencies {
     implementation group: 'one.util', name: 'streamex', version: '0.8.1'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
     implementation group: 'info.picocli', name: 'picocli', version: '4.7.4'
-    //testImplementation platform('org.junit:junit.bom:5.9.2')
+    // https://mvnrepository.com/artifact/org.junit/junit-bom
+    //testImplementation group: 'org.junit', name: 'junit-bom', version: '5.10.0', ext: 'pom'
+//    testImplementation platform('org.junit:junit.bom:5.9.2')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
 
