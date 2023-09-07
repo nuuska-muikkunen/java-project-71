@@ -31,11 +31,12 @@ dependencies {
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.1'
     implementation group: 'org.jacoco', name: 'org.jacoco.core', version: '0.8.10'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
-    implementation group: 'one.util', name: 'streamex', version: '0.8.1'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
     implementation group: 'info.picocli', name: 'picocli', version: '4.7.4'
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation group: 'com.github.stefanbirkner', name: 'system-rules', version: '1.19.0'
+    testImplementation group: 'com.github.stefanbirkner', name: 'system-lambda', version: '1.2.1'
 }
 
 jacocoTestReport {

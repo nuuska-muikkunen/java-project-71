@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
         version = "3.0.0",
         description = "Compares two configuration files and shows a difference."
 )
-class App implements Callable {
+public class App implements Callable {
     @Parameters(description = "path to first file", paramLabel = "filepath1")
         private String filepath1;
     @Parameters(description = "path to second file", paramLabel = "filepath2")
@@ -25,20 +25,12 @@ class App implements Callable {
         private String format = "stylish";
     @Override
     public String call() throws Exception {
-        return Differ.generate(filepath1, filepath2, format);
+        String s = Differ.generate(filepath1, filepath2, format);
+        System.out.println(s);
+        return s;
     }
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
-        CommandLine commandLine = new CommandLine(new App());
-        commandLine.setUsageHelpLongOptionsMaxWidth(43);
-        commandLine.parseArgs(args);
-        if (commandLine.isUsageHelpRequested()) {
-            commandLine.usage(System.out);
-            return;
-        } else if (commandLine.isVersionHelpRequested()) {
-            commandLine.printVersionHelp(System.out);
-            return;
-        }
     }
 }

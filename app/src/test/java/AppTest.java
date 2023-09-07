@@ -1,5 +1,8 @@
-
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOutNormalized;
+import picocli.CommandLine;
 import hexlet.code.Differ;
+import hexlet.code.App;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -183,5 +186,64 @@ public class AppTest {
         String result = Differ.generate("src/test/resources/foo1.doc",
                 "src/test/resources/foo2.doc", "stylish");
         assertThat(result).isEqualTo(expected);
+    }
+    @Test
+    public void cliTestHelp() throws Exception {
+        String errText = tapSystemErr(() -> {
+            String outText = tapSystemOutNormalized(() -> new CommandLine(new App())
+                    .execute("-h"));
+            assertThat(outText.trim()).isEqualTo("""
+                    Usage: gendiff [-hV] [-f=format] filepath1 filepath2
+                    Compares two configuration files and shows a difference.
+                          filepath1         path to first file
+                          filepath2         path to second file
+                      -f, --format=format   output format [default: stylish]
+                      -h, --help            Show this help message and exit.
+                      -V, --version         Print version information and exit.""");
+        });
+        assertThat(errText.trim()).isEqualTo("");
+    }
+    @Test
+    public void cliTestVersion() throws Exception {
+        String errText = tapSystemErr(() -> {
+            String outText = tapSystemOutNormalized(() -> new CommandLine(new App())
+                    .execute("-V"));
+            assertThat(outText.trim()).isEqualTo("3.0.0");
+        });
+        assertThat(errText.trim()).isEqualTo("");
+    }
+    @Test
+    public void cliTestProduction() throws Exception {
+        String errText = tapSystemErr(() -> {
+            String outText = tapSystemOutNormalized(() -> new CommandLine(new App())
+                    .execute("-f=stylish", "src/test/resources/file_1.json", "src/test/resources/file_2.json"));
+            assertThat(outText.trim()).isEqualTo("""
+                    {
+                        chars1: [a, b, c]
+                      - chars2: [d, e, f]
+                      + chars2: false
+                      - checked: false
+                      + checked: true
+                      - default: null
+                      + default: [value1, value2]
+                      - id: 45
+                      + id: null
+                      - key1: value1
+                      + key2: value2
+                        numbers1: [1, 2, 3, 4]
+                      - numbers2: [2, 3, 4, 5]
+                      + numbers2: [22, 33, 44, 55]
+                      - numbers3: [3, 4, 5]
+                      + numbers4: [4, 5, 6]
+                      + obj1: {nestedKey=value, isNested=true}
+                      - setting1: Some value
+                      + setting1: Another value
+                      - setting2: 200
+                      + setting2: 300
+                      - setting3: true
+                      + setting3: none
+                    }""");
+        });
+        assertThat(errText.trim()).isEqualTo("");
     }
 }

@@ -13,7 +13,7 @@ install:
 	./app/gradlew -p app clean install
 
 run-dist:
-	./app/build/install/app/bin/app
+	@./app/build/install/app/bin/app -h
 
 run:
 	./app/gradlew -p app run

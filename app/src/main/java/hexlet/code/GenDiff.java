@@ -27,7 +27,6 @@ public class GenDiff {
                 result.put("    " + string2, value1);
             }
         }
-
         return result;
     }
 }
