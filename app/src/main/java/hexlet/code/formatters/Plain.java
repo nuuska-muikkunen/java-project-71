@@ -6,6 +6,7 @@ import static org.apache.commons.lang3.ClassUtils.isPrimitiveOrWrapper;
 
 public class Plain {
     private static final String COMPLEX_VALUE = "[complex value]";
+    private static final int PREFIX_LENGTH = 4;
     public static boolean isComplexObject(Object obj) {
         return !isPrimitiveOrWrapper(obj.getClass()) && !(obj instanceof String);
     }
@@ -17,7 +18,7 @@ public class Plain {
         ArrayList<String> changedElementsList = new ArrayList<>();
         String keyWithPlusPrefix;
         for (String currentKey : sortedMap.keySet()) {
-            switch (currentKey.substring(0, 4)) {
+            switch (currentKey.substring(0, PREFIX_LENGTH)) {
                 case "  - " -> {
                     keyWithPlusPrefix = currentKey.replace("  - ", "  + ");
                     if (sortedMap.containsKey(keyWithPlusPrefix)) {
@@ -39,7 +40,7 @@ public class Plain {
                             }
                         }
                         formattedString.append("Property '")
-                                .append(currentKey.substring(4))
+                                .append(currentKey.substring(PREFIX_LENGTH))
                                 .append("' was updated. From ")
                                 .append(hasToBeQuoted(value1) ? "'" + value1 + "'" : value1)
                                 .append(" to ")
@@ -47,7 +48,7 @@ public class Plain {
                                 .append("\n");
                     } else {
                         formattedString.append("Property '")
-                                .append(currentKey.substring(4))
+                                .append(currentKey.substring(PREFIX_LENGTH))
                                 .append("' was removed\n");
                     }
                 }
@@ -62,7 +63,7 @@ public class Plain {
                             }
                         }
                         formattedString.append("Property '")
-                                .append(currentKey.substring(4))
+                                .append(currentKey.substring(PREFIX_LENGTH))
                                 .append("' was added with value: ")
                                 .append(hasToBeQuoted(value) ? "'" + value + "'" : value)
                                 .append("\n");
