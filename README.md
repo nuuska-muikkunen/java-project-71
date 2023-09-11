@@ -56,12 +56,11 @@ make build-run
 
 ## asciinema for Step 5 Module 2 task
 [![asciicast](https://asciinema.org/a/602233.svg)](https://asciinema.org/a/602233)
-### https://asciinema.org/a/602233
 ## asciinema for Step 7 Module 2 task
-https://asciinema.org/a/604347
+[![asciicast](https://asciinema.org/a/604347.svg)](https://asciinema.org/a/604347)
 ## asciinema for Step 8 Module 2 task
-https://asciinema.org/a/604896
+[![asciicast](https://asciinema.org/a/604896.svg)](https://asciinema.org/a/604896)
 ## asciinema for Step 9 Module 2 task
-https://asciinema.org/a/605846
+[![asciicast](https://asciinema.org/a/605846.svg)](https://asciinema.org/a/605846)
 ## asciinema for Step 10 Module 2 task
-https://asciinema.org/a/606411
+[![asciicast](https://asciinema.org/a/606411.svg)](https://asciinema.org/a/606411)
