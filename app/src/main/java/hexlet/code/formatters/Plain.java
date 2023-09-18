@@ -1,79 +1,35 @@
 package hexlet.code.formatters;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import static org.apache.commons.lang3.ClassUtils.isPrimitiveOrWrapper;
+import hexlet.code.Utilities;
+
+import java.util.List;
+import java.util.Map;
 
 public class Plain {
-    private static final String COMPLEX_VALUE = "[complex value]";
-    private static final int PREFIX_LENGTH = 4;
-    public static boolean isComplexObject(Object obj) {
-        return !isPrimitiveOrWrapper(obj.getClass()) && !(obj instanceof String);
-    }
-    public static boolean hasToBeQuoted(Object obj) {
-        return (obj instanceof String) && !obj.equals(COMPLEX_VALUE);
-    }
-    public static String plain(LinkedHashMap<String, Object> sortedMap) {
+    public static String plain(List<Map<String, Object>> listForFormatting) {
         StringBuilder formattedString = new StringBuilder();
-        ArrayList<String> changedElementsList = new ArrayList<>();
-        String keyWithPlusPrefix;
-        for (String currentKey : sortedMap.keySet()) {
-            switch (currentKey.substring(0, PREFIX_LENGTH)) {
-                case "  - " -> {
-                    keyWithPlusPrefix = currentKey.replace("  - ", "  + ");
-                    if (sortedMap.containsKey(keyWithPlusPrefix)) {
-                        changedElementsList.add(keyWithPlusPrefix);
-                        var value1 = sortedMap.get(currentKey);
-                        if (sortedMap.get(currentKey) == null) {
-                            value1 = null;
-                        } else {
-                            if (isComplexObject(sortedMap.get(currentKey))) {
-                                value1 = COMPLEX_VALUE;
-                            }
-                        }
-                        var value2 = sortedMap.get(keyWithPlusPrefix);
-                        if (sortedMap.get(keyWithPlusPrefix) == null) {
-                            value2 = null;
-                        } else {
-                            if (isComplexObject(sortedMap.get(keyWithPlusPrefix))) {
-                                value2 = COMPLEX_VALUE;
-                            }
-                        }
-                        formattedString.append("Property '")
-                                .append(currentKey.substring(PREFIX_LENGTH))
-                                .append("' was updated. From ")
-                                .append(hasToBeQuoted(value1) ? "'" + value1 + "'" : value1)
-                                .append(" to ")
-                                .append(hasToBeQuoted(value2) ? "'" + value2 + "'" : value2)
-                                .append("\n");
-                    } else {
-                        formattedString.append("Property '")
-                                .append(currentKey.substring(PREFIX_LENGTH))
-                                .append("' was removed\n");
-                    }
+        listForFormatting.forEach(map -> {
+            var value1 = Utilities.isListOrMap(map.get("value")) ? "[complex value]" : map.get("value");
+            var value2 = Utilities.isListOrMap(map.get("value2")) ? "[complex value]" : map.get("value2");
+            switch (map.get("type of change").toString()) {
+                case "add" -> {
+                    formattedString.append(String.format(Utilities.quotationsNeeded(map.get("value2"))
+                            ? "Property '%s' was added with value: '%s'\n" : "Property '%s' was added with value: %s\n",
+                            map.get("key"), value2));
                 }
-                case "  + " -> {
-                    if (!changedElementsList.contains(currentKey)) {
-                        var value = sortedMap.get(currentKey);
-                        if (sortedMap.get(currentKey) == null) {
-                            value = null;
-                        } else {
-                            if (isComplexObject(sortedMap.get(currentKey))) {
-                                value = COMPLEX_VALUE;
-                            }
-                        }
-                        formattedString.append("Property '")
-                                .append(currentKey.substring(PREFIX_LENGTH))
-                                .append("' was added with value: ")
-                                .append(hasToBeQuoted(value) ? "'" + value + "'" : value)
-                                .append("\n");
-                    }
+                case "delete" -> {
+                    formattedString.append(String.format("Property '%s' was removed\n", map.get("key")));
                 }
-                default -> {
+                case "change" -> {
+                    StringBuilder stringForOutput = new StringBuilder("Property '%s' was updated. From ")
+                            .append(Utilities.quotationsNeeded(map.get("value")) ? "'%s' to " : "%s to ")
+                            .append(Utilities.quotationsNeeded(map.get("value2")) ? "'%s'\n" : "%s\n");
+                    formattedString.append(String.format(stringForOutput.toString(), map.get("key"), value1, value2));
                 }
+                default -> { }
             }
-        }
-        //remove excess '/n' at the end of the last line
+        });
         return formattedString.substring(0, formattedString.length() - 1);
     }
 }
+

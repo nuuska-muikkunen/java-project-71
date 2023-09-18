@@ -3,27 +3,26 @@ package hexlet.code;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 import hexlet.code.formatters.Json;
-import java.util.LinkedHashMap;
-import static hexlet.code.SortBySubstring.sortMapBySubstring;
+
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Formatter {
-    public static String formatter(LinkedHashMap<String, Object> resultOfComparedFiles, String format)
+    public static String formatter(List<Map<String, Object>> mapWithNullValues, String format)
                          throws Exception {
-        var mapWithNullValues = sortMapBySubstring(resultOfComparedFiles);
-        for (String s: mapWithNullValues.keySet()) {
-            if (mapWithNullValues.get(s).equals("null")) {
-                mapWithNullValues.replace(s, null);
-            }
-        }
+        List<Map<String, Object>> tempList = new ArrayList<>(mapWithNullValues);
+        tempList.sort(Comparator.comparing(o -> o.get("key").toString()));
         switch (format) {
             case "plain" -> {
-                return Plain.plain(mapWithNullValues);
+                return Plain.plain(tempList);
             }
             case "json" -> {
-                return Json.json(mapWithNullValues);
+                return Json.json(tempList);
             }
             default -> {
-                return Stylish.stylish(mapWithNullValues);
+                return Stylish.stylish(tempList);
             }
         }
     }

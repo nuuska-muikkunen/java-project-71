@@ -19,6 +19,7 @@ public class Differ {
         var file2InMapFormat = Parser.parse(linesOfFile2, endOfFile2);
 
         var resultOfComparedFiles = GenDiff.genDiff(file1InMapFormat, file2InMapFormat);
+//        System.out.println(resultOfComparedFiles);
         return Formatter.formatter(resultOfComparedFiles, format);
     }
     public static String generate(String filePath1, String filePath2) throws Exception {
