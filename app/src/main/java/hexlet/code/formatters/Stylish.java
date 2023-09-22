@@ -9,14 +9,14 @@ public class Stylish {
         listForFormatting.forEach(map -> {
             switch (map.get("type of change").toString()) {
                 case "add" -> formattedString
-                        .append(String.format("%s%s: %s\n", "  + ", map.get("key"), map.get("value2")));
+                        .append(String.format("  + %s: %s\n", map.get("key"), map.get("value2")));
                 case "delete" -> formattedString
-                        .append(String.format("%s%s: %s\n", "  - ", map.get("key"), map.get("value")));
+                        .append(String.format("  - %s: %s\n", map.get("key"), map.get("value")));
                 case "nothing" -> formattedString
-                        .append(String.format("%s%s: %s\n", "    ", map.get("key"), map.get("value")));
+                        .append(String.format("    %s: %s\n", map.get("key"), map.get("value")));
                 case "change" -> {
-                    formattedString.append(String.format("%s%s: %s\n", "  - ", map.get("key"), map.get("value")));
-                    formattedString.append(String.format("%s%s: %s\n", "  + ", map.get("key"), map.get("value2")));
+                    formattedString.append(String.format("  - %s: %s\n", map.get("key"), map.get("value")));
+                    formattedString.append(String.format("  + %s: %s\n", map.get("key"), map.get("value2")));
                 }
                 default -> { }
             }

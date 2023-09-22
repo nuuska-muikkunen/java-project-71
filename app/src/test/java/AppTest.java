@@ -1,7 +1,7 @@
 import hexlet.code.Differ;
 import org.junit.jupiter.api.Test;
-import static hexlet.code.FilePath.fixture;
-import static hexlet.code.FixtureToString.fixtureToString;
+import static hexlet.code.Differ.fixture;
+import static hexlet.code.Differ.fixtureToString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest {

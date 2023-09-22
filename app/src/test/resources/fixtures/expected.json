@@ -1,28 +1,79 @@
-{
-  "    chars1" : ["a", "b", "c"],
-  "  - chars2" : ["d", "e", "f"],
-  "  + chars2" : false,
-  "  - checked" : false,
-  "  + checked" : true,
-  "  - default" : null,
-  "  + default" : ["value1", "value2"],
-  "  - id" : 45,
-  "  + id" : null,
-  "  - key1" : "value1",
-  "  + key2" : "value2",
-  "    numbers1" : [1, 2, 3, 4],
-  "  - numbers2" : [2, 3, 4, 5],
-  "  + numbers2" : [22, 33, 44, 55],
-  "  - numbers3" : [3, 4, 5],
-  "  + numbers4" : [4, 5, 6],
-  "  + obj1" : {
+[ {
+  "key" : "chars1",
+  "type of change" : "nothing",
+  "value" : [ "a", "b", "c" ],
+  "value2" : [ "a", "b", "c" ]
+}, {
+  "key" : "chars2",
+  "type of change" : "change",
+  "value" : [ "d", "e", "f" ],
+  "value2" : false
+}, {
+  "key" : "checked",
+  "type of change" : "change",
+  "value" : false,
+  "value2" : true
+}, {
+  "key" : "default",
+  "type of change" : "change",
+  "value" : "null",
+  "value2" : [ "value1", "value2" ]
+}, {
+  "key" : "id",
+  "type of change" : "change",
+  "value" : 45,
+  "value2" : "null"
+}, {
+  "key" : "key1",
+  "type of change" : "delete",
+  "value" : "value1",
+  "value2" : "null"
+}, {
+  "key" : "key2",
+  "type of change" : "add",
+  "value" : "null",
+  "value2" : "value2"
+}, {
+  "key" : "numbers1",
+  "type of change" : "nothing",
+  "value" : [ 1, 2, 3, 4 ],
+  "value2" : [ 1, 2, 3, 4 ]
+}, {
+  "key" : "numbers2",
+  "type of change" : "change",
+  "value" : [ 2, 3, 4, 5 ],
+  "value2" : [ 22, 33, 44, 55 ]
+}, {
+  "key" : "numbers3",
+  "type of change" : "delete",
+  "value" : [ 3, 4, 5 ],
+  "value2" : "null"
+}, {
+  "key" : "numbers4",
+  "type of change" : "add",
+  "value" : "null",
+  "value2" : [ 4, 5, 6 ]
+}, {
+  "key" : "obj1",
+  "type of change" : "add",
+  "value" : "null",
+  "value2" : {
     "nestedKey" : "value",
     "isNested" : true
-  },
-  "  - setting1" : "Some value",
-  "  + setting1" : "Another value",
-  "  - setting2" : 200,
-  "  + setting2" : 300,
-  "  - setting3" : true,
-  "  + setting3" : "none"
-}
+  }
+}, {
+  "key" : "setting1",
+  "type of change" : "change",
+  "value" : "Some value",
+  "value2" : "Another value"
+}, {
+  "key" : "setting2",
+  "type of change" : "change",
+  "value" : 200,
+  "value2" : 300
+}, {
+  "key" : "setting3",
+  "type of change" : "change",
+  "value" : true,
+  "value2" : "none"
+} ]
