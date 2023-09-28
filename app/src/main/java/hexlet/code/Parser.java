@@ -14,12 +14,12 @@ public class Parser {
             }
             case ".yml", ".yaml" -> {
                 ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-                mapper.findAndRegisterModules();
-                return mapper.readValue(textToParse, new TypeReference<>() { });
+                return mapper.findAndRegisterModules()
+                        .readValue(textToParse, new TypeReference<>() { });
             }
             default -> {
                 System.out.println("There are files of unknown format");
-                return Map.of("", "");
+                return Map.of();
             }
         }
     }

@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class GenDiff {
-    public static List<Map<String, Object>> genDiff(Map<String, Object> map1, Map<String, Object> map2)
-            throws Exception {
+    public static List<Map<String, Object>> genDiff(Map<String, Object> map1, Map<String, Object> map2) {
         List<Map<String, Object>> treeOfChanges = new ArrayList<>();
         Set<Object> keys = new TreeSet<>(map1.keySet());
         keys.addAll(map2.keySet());
