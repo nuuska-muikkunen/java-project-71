@@ -8,11 +8,11 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 public class Parser {
     public static Map<String, Object> parse(String textToParse, String format) throws Exception {
         switch (format) {
-            case ".json" -> {
+            case "json" -> {
                 ObjectMapper mapper = new ObjectMapper();
                 return mapper.readValue(textToParse, new TypeReference<>() { });
             }
-            case ".yml", ".yaml" -> {
+            case "yml", "yaml" -> {
                 ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
                 return mapper.findAndRegisterModules()
                         .readValue(textToParse, new TypeReference<>() { });

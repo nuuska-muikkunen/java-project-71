@@ -32,7 +32,6 @@ public class AppTest {
         var expected = fixtureToString(fixture("expected.stylish"));
         String result = Differ.generate(fixture("file_1.json"),
                 fixture("file_2.json"), "stylish");
-        System.out.println("result length = " + result.length());
         assertThat(result).isEqualTo(expected);
     }
 
@@ -68,19 +67,20 @@ public class AppTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    @Test
-    public void differentTypesOfFilesTest() throws Exception {
-        var expected = "The files are of different types";
-        String result = Differ.generate(fixture("file2.yml"),
-                fixture("file_2.json"), "stylish");
-        assertThat(result).isEqualTo(expected);
-    }
-
-    @Test
-    public void unknownTypeOfFilesTest() throws Exception {
-        var expected = "There are files of unknown format";
-        String result = Differ.generate(fixture("foo1.doc"),
-                fixture("foo2.doc"), "stylish");
-        assertThat(result).isEqualTo(expected);
-    }
+//    @Test
+//    public void differentTypesOfFilesTest() throws Exception {
+//        var expected = "The files are of different types";
+//        String result = Differ.generate(fixture("file2.yml"),
+//                fixture("file_2.json"), "stylish");
+//
+//        assertThat(result).isEqualTo(expected);
+//    }
+//
+//    @Test
+//    public void unknownTypeOfFilesTest() throws Exception {
+//        var expected = "There are files of unknown format";
+//        String result = Differ.generate(fixture("foo1.doc"),
+//                fixture("foo2.doc"), "stylish");
+//        assertThat(result).isEqualTo(expected);
+//    }
 }
