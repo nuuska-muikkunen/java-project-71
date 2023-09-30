@@ -19,47 +19,31 @@ public class GenDiff {
         Set<Object> keys = new TreeSet<>(map1.keySet());
         keys.addAll(map2.keySet());
         Set<Object> sortedKeys = new TreeSet<>(keys);
-        for (Object key : sortedKeys) {
-            var value1 = replaceNullValueWithStringNull(map1.get(key));
-            var value2 = replaceNullValueWithStringNull(map2.get(key));
-            Map<String, Object> tempMap = new LinkedHashMap<>();
-            tempMap.put("key", key);
-            if (map1.containsKey(key)) {
-                tempMap.put("type of change", "delete");
-                tempMap.put("oldValue", value1);
-            }
-            if (map2.containsKey(key)) {
-                tempMap.put("type of change", "add");
-                tempMap.put("newValue", value2);
-            }
-            if (map1.containsKey(key) && map2.containsKey(key)) {
-                if (Objects.equals(value1, value2)) {
-                    tempMap.put("type of change", "nothing");
-                } else {
-                    tempMap.put("type of change", "change");
-                }
-                tempMap.put("oldValue", value1);
-                tempMap.put("newValue", value2);
-            }
-            treeOfChanges.add(tempMap);
-        }
+        sortedKeys.stream()
+                .peek(o -> {
+                    Map<String, Object> tempMap = new LinkedHashMap<>();
+                    tempMap.put("key", o);
+                    if (map1.containsKey(o)) {
+                        tempMap.put("type of change", "delete");
+                        tempMap.put("oldValue", replaceNullValueWithStringNull(map1.get(o)));
+                    }
+                    if (map2.containsKey(o)) {
+                        tempMap.put("type of change", "add");
+                        tempMap.put("newValue", replaceNullValueWithStringNull(map2.get(o)));
+                    }
+                    if (map1.containsKey(o) && map2.containsKey(o)) {
+                        if (Objects.equals(replaceNullValueWithStringNull(map1.get(o)),
+                                replaceNullValueWithStringNull(map2.get(o)))) {
+                            tempMap.put("type of change", "nothing");
+                        } else {
+                            tempMap.put("type of change", "change");
+                        }
+                        tempMap.put("oldValue", replaceNullValueWithStringNull(map1.get(o)));
+                        tempMap.put("newValue", replaceNullValueWithStringNull(map2.get(o)));
+                    }
+                    treeOfChanges.add(tempMap);
+                })
+                .toList();
         return treeOfChanges;
     }
-    //        sortedKeys.stream()
-//                .peek(o -> {
-//                    Map<String, Object> tempMap = new LinkedHashMap<>();
-//                    tempMap.put("key", o);
-//                    var value1 = map1.get(o) == null ? "null" : map1.get(o);
-//                    var value2 = map2.get(o) == null ? "null" : map2.get(o);
-//                    var typeOfChange = map1.containsKey(o) && !map2.containsKey(o) ? "delete" : "change";
-//                    typeOfChange = map2.containsKey(o) && !map1.containsKey(o) ? "add" : "change";
-//                    typeOfChange = (Objects.equals(value1, value2)) ? "nothing" : "change";
-//                    tempMap.put("type of change", typeOfChange);
-//                    tempMap.put("value", value1);
-//                    tempMap.put("value2", value2);
-//                    treeOfChanges.add(tempMap);
-//                })
-//                .toList();
-//        System.out.println(treeOfChanges);
-//        return treeOfChanges;
 }
