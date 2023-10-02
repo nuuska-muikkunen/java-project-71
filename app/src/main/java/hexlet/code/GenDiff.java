@@ -16,10 +16,9 @@ public class GenDiff {
 
     public static List<Map<String, Object>> genDiff(Map<String, Object> map1, Map<String, Object> map2) {
         List<Map<String, Object>> treeOfChanges = new ArrayList<>();
-        Set<Object> keys = new TreeSet<>(map1.keySet());
+        Set<String> keys = new TreeSet<>(map1.keySet());
         keys.addAll(map2.keySet());
-        Set<Object> sortedKeys = new TreeSet<>(keys);
-        sortedKeys.stream()
+        keys.stream()
                 .peek(o -> {
                     Map<String, Object> tempMap = new LinkedHashMap<>();
                     tempMap.put("key", o);

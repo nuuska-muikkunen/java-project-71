@@ -40,4 +40,3 @@ public class Plain {
         return formattedString.substring(0, formattedString.length() - 1);
     }
 }
-

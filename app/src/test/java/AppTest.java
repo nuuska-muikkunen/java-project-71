@@ -1,8 +1,7 @@
 import hexlet.code.Differ;
 import org.junit.jupiter.api.Test;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest {
@@ -12,24 +11,10 @@ public class AppTest {
         return PATH_TO_FIXTURE + nameOfFile;
     }
 
-    public static String fixtureToString(String filePath) throws Exception {
-        File file = new File(filePath);
-        FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);
-        StringBuilder s = new StringBuilder();
-        String line;
-        while ((line = br.readLine()) != null) {
-            s.append(line).append("\n");
-        }
-        return s.substring(0, s.length() - 1).trim();
-    }
-
     @Test
     public void recursiveTest() throws Exception {
-//        is not working properly - needs review
-//        var expected = Files.readString(Paths.get(fixture("expected.stylish"))
-//                .toAbsolutePath().normalize()).trim();
-        var expected = fixtureToString(fixture("expected.stylish"));
+        var expected = Files.readString(Paths.get(fixture("expected.stylish"))
+                .toAbsolutePath().normalize()).trim();
         String result = Differ.generate(fixture("file_1.json"),
                 fixture("file_2.json"), "stylish");
         assertThat(result).isEqualTo(expected);
@@ -37,7 +22,8 @@ public class AppTest {
 
     @Test
     public void recursiveTest2() throws Exception {
-        var expected = fixtureToString(fixture("expected.stylish"));
+        var expected = Files.readString(Paths.get(fixture("expected.stylish"))
+                .toAbsolutePath().normalize()).trim();
         String result = Differ.generate(fixture("file_1.json"),
                 fixture("file_2.json"));
         assertThat(result).isEqualTo(expected);
@@ -45,7 +31,8 @@ public class AppTest {
 
     @Test
     public void yamlTest() throws Exception {
-        var expected = fixtureToString(fixture("expected.stylish"));
+        var expected = Files.readString(Paths.get(fixture("expected.stylish"))
+                .toAbsolutePath().normalize()).trim();
         String result = Differ.generate(fixture("file1.yml"),
                 fixture("file2.yml"), "yaml");
         assertThat(result).isEqualTo(expected);
@@ -53,7 +40,8 @@ public class AppTest {
 
     @Test
     public void plainTest() throws Exception {
-        var expected = fixtureToString(fixture("expected.plain"));
+        var expected = Files.readString(Paths.get(fixture("expected.plain"))
+                .toAbsolutePath().normalize()).trim();
         String result = Differ.generate(fixture("file_1.json"),
                 fixture("file_2.json"), "plain");
         assertThat(result).isEqualTo(expected);
@@ -61,7 +49,8 @@ public class AppTest {
 
     @Test
     public void jsonTest() throws Exception {
-        var expected = fixtureToString(fixture("expected.json"));
+        var expected = Files.readString(Paths.get(fixture("expected.json"))
+                .toAbsolutePath().normalize()).trim();
         String result = Differ.generate(fixture("file_1.json"),
                 fixture("file_2.json"), "json");
         assertThat(result).isEqualTo(expected);
