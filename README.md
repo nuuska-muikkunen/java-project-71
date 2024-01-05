@@ -1,4 +1,4 @@
-# Java-project-71
+github/# Diff Calculator
 
 ## Hexlet tests and linter status:
 [![hexlet-check](https://github.com/nuuska-muikkunen/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/nuuska-muikkunen/java-project-71/actions/workflows/hexlet-check.yml)
